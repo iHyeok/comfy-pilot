@@ -233,6 +233,7 @@ class WebSocketTerminal:
         if self.pid == 0:
             # Child process
             env = os.environ.copy()
+            env.pop("CLAUDECODE", None)
             env["TERM"] = "xterm-256color"
             env["COLORTERM"] = "truecolor"
 
