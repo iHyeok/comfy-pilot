@@ -519,7 +519,7 @@ async def run_node_handler(request):
 
 async def websocket_handler(request):
     """Handle WebSocket connections for terminal sessions."""
-    ws = web.WebSocketResponse()
+    ws = web.WebSocketResponse(heartbeat=30.0)
     await ws.prepare(request)
 
     if IS_WINDOWS:
